@@ -6,8 +6,6 @@
  * http://www.foretagsplatsen.se
  */
 
-var _ = require("underscore");
-
     /************************************
         Constants
     ************************************/
@@ -890,13 +888,13 @@ var _ = require("underscore");
     }
 
     function format(input, formatString, language, roundingFunction) {
-        if (_.isString(language) && language !== numbro.culture()) {
+        if (language != null && language !== numbro.culture()) {
             numbro.setCulture(language);
         }
         return formatNumbro(
             Number(input),
-            _.isString(formatString)        ? formatString        : defaultFormat,
-            _.isUndefined(roundingFunction) ? Math.round          : roundingFunction);
+            formatString != null     ? formatString : defaultFormat,
+            roundingFunction != null ? Math.round   : roundingFunction);
     }
 
     module.exports = {"format": format};
