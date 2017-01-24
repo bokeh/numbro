@@ -894,7 +894,7 @@
         return formatNumbro(
             Number(input),
             formatString != null     ? formatString : defaultFormat,
-            roundingFunction != null ? Math.round   : roundingFunction);
+            roundingFunction == null ? Math.round   : roundingFunction);
     }
 
     module.exports = {"format": format};
